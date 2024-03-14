@@ -1,8 +1,5 @@
-
 //Name: James Eaton
-//Description: Stores People as passengers in a plane. Person is and object that stores the names and phonenumbers of people, passengers extends people and stores information in relation
-             //to them being passengers such as their seat number, and airplane stores the people together on a plane/array.
-
+//Description: Stores People as passengers in a plane. Person is and object that stores the names and phonenumbers of people, passengers extends people and stores information in relation to them being passengers such as their seat number, and airplane stores the people together on a plane/array.
 import java.util.*;
 public class AirplaneEaton{}
 //person class, stores information on a person's first and last name as well as their phone number.

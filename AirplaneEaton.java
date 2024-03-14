@@ -1,18 +1,8 @@
-/*
-Name: James Eaton
-Description: Stores People as passengers in a plane. Person is and object that stores the names and phonenumbers of people, passengers extends people and stores information in relation
-             to them being passengers such as their seat number, and airplane stores the people together on a plane/array.
-date: 2/28/24
-self-grade:My grade is 100 becasue: 
-            I have followed all proper naming conventions,
-            I have proper and consistant indentation, 
-            I have meaningfull comments throughtout my code,
-            My program complies while having all required code,
-            My program runs and matched the sample output,
-            I have followed all the requirements,
-            and I have left this self grade.
-Testimony: All the code is written by myself and I have not copied the code from any resources. Name: James Eaton
-*/
+
+//Name: James Eaton
+//Description: Stores People as passengers in a plane. Person is and object that stores the names and phonenumbers of people, passengers extends people and stores information in relation
+             //to them being passengers such as their seat number, and airplane stores the people together on a plane/array.
+
 import java.util.*;
 public class AirplaneEaton{}
 //person class, stores information on a person's first and last name as well as their phone number.
@@ -20,13 +10,11 @@ class Person{
     private String first;
     private String last;
     private String phone;
-    //Constructor
     public Person(String first, String last, String phone){
       this.first = first;
       this.last = last;
       this.phone = phone;
     }
-    //getters
     public String getFirst(){
       return first;
     }
@@ -36,7 +24,6 @@ class Person{
     public String getPhone(){
       return phone;
     }
-    //setters
     public void setFirst(String first){
       this.first = first;
     }
@@ -46,7 +33,6 @@ class Person{
     public void setPhone(String phone){
       this.phone = phone;
     }
-    //methods
     public String toString(){
       return "First Name: " + first + "\nLast Name: " + last + "\nPhone Number: " + phone;
     }
@@ -60,14 +46,12 @@ class Passenger extends Person{
    private int seatNumber;
    private String classType;
    private String ticketId;
-   //constructor
    public Passenger(String first, String last, String ticketId, int seatNumber, String classType, String phone){
       super(first, last, phone);
       this.seatNumber = seatNumber;
       this.classType = classType;
       this.ticketId = ticketId;
    }
-   //getters
    public int getSeatNUmber(){
       return seatNumber;
    }
@@ -77,7 +61,6 @@ class Passenger extends Person{
     public String getTicketId(){
       return ticketId;
     }
-    //setters
     public void changeSeatNumber(int num){
       seatNumber = num;
     }
@@ -87,7 +70,6 @@ class Passenger extends Person{
     public void setTicketId(String ticketId){
       this.ticketId = ticketId;
     }
-    //to string
     public String toString(){
       return super.toString() + "\nSeat Number: " + seatNumber + "\nClass: " + classType + "\nTicket ID: " + ticketId;
     }
@@ -110,14 +92,12 @@ class Airplane implements list{
    public Airplane(int planeNum){
       this.planeNum = planeNum;
    }
-   //getters
    public int getPlaneNum(){
       return planeNum;
    }
    public static int getCount(){
       return count;
    }
-   //setters
    public void setPlaneNum(int num){
       planeNum = num;
    }
@@ -184,71 +164,7 @@ class Airplane implements list{
       takenOff = true;
    }
 }
-/* Do not delete the given driver , The class Driver must be in your code when you submit it
-Once you complete all the classes uncommnet the given driver to test your code.*/
-/*	
-class Driver {
-   public static void main(String[]args) {
-      Scanner in = new Scanner(System.in);
-   	
-      Scanner kb = new Scanner(System.in);
-      Airplane plane = new Airplane(817345);
-      Passenger p1 = new Passenger("Bobbys", "Smith", "123456789", 1, "First class", "916-222-3333");
-      Passenger p2 = new Passenger("Johnny", "Apples", "987654321", 8, "Business class", "818-000-1234");
-      Passenger p3 = new Passenger("Tommy", "Jerrys", "567123489", 32, "Economy class","202-222-3333");
-      Passenger p4 = new Passenger("Candy", "Cruze", "982134567", 15, "Premium Economy class","707-444-5555");
-      
-      //this passenger will be added after take off
-      Passenger p5 = new Passenger("Kalotiii", "Aaronn", "762134589", 5, "Economy plus","817-222-6666");
-      
-      plane.add(p1);
-      plane.add(p2);
-      plane.add(p3);
-      plane.add(p4);
-      System.out.println("The palne is about to take off");
-      plane.takeOff();
-      System.out.println("adding a passenger after take off");
-      plane.add(p5);
-      String repeat = "";
-      while(plane.getCount() > 0) 
-      {
-      
-         System.out.println("Here is the list of the passengers in this plane");
-         System.out.println("There are " + plane.getCount() + " Passengers on this plane"); 
-         System.out.println(plane.toString() + "\n");
-      
-         System.out.println("Testing the printLast method to display the last names");
-         plane.printLast();  
-         System.out.println();
-         
-         System.out.println("Testing the static method getCount");
-         System.out.println("This train has " + plane.getCount() + " Passengers\n");
-         
-         System.out.print("Enter the last name of the passenger to search for: ");
-         String lastName = in.nextLine();
-         System.out.println(plane.search(lastName));
-         System.out.println();
-         
-         System.out.println("Testing the delete method");
-         System.out.print("Enter the last name of the passenger to be deleted: ");
-         String last = in.nextLine();
-         plane.delete(last);
-         System.out.println("Passenger " + last + " has been removed from the list\n");
-         
-         System.out.println("Here is the updated list");
-         System.out.println(plane);
-         System.out.println("*********************");
-         System.out.print("Press any key to continue : ");
-         repeat = kb.nextLine();
-      }
-      System.out.println("No passenger left on this airplane");
-   	
-   }
-}
-*/
-/*Complete the following driver to include the required code.*/
-/*20 points is allocated for this driver*/
-class yourDriver{
+class Driver{
    public static void main(String[]args) {
       Scanner sc = new Scanner(System.in);
       Airplane plane = new Airplane(123354);

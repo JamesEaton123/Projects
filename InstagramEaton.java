@@ -1,28 +1,12 @@
-/*
-Name: James Eaton
-date: 2/14/24
-self-grade:My grade is 100 becasue: 
-            I have followed all proper naming conventions,
-            I have proper and consistant indentation, 
-            I have meaningfull comments throughtout my code,
-            My program complies while having all required code,
-            My program runs and matched the sample output,
-            I have followed all the requirements,
-            and I have left this self grade.
-Testimony: All the code is written by myself and I have not copied the code from any resources. Name: James Eaton
-*/
-
 import java.util.*;
 public class InstagramEaton{
 }
 class User implements Comparable {
-   //attributes
    private String first;
    private String last;
    private String username;
    private boolean followBack;
    private int age;   
-   //consatructor
    public User(boolean followBack, String first, String last, String username, int age){
        this.followBack = followBack;
        this.first = first;
@@ -30,7 +14,6 @@ class User implements Comparable {
        this.username = username;
        this.age = age;
    }
-   //getters and setters
    public boolean getFollow()
    {
       return followBack;
@@ -89,9 +72,7 @@ class User implements Comparable {
 }
 
 class Instagram{
-   //attribute (creates an array list)
    private ArrayList<User> app; 
-   //constructor
    Instagram(){
       app = new ArrayList<User>();
    }
@@ -136,8 +117,7 @@ class Instagram{
                return true;
       }
       return false;
-   }
-   //getter   
+   } 
    public ArrayList<User>getList(){
       return app;
    }
@@ -154,7 +134,6 @@ class Instagram{
       }
       return count;    
    } 
-   //to string method
    public String toString(){ 
      String s = "";
      for(int i = 0; i<app.size(); i++){
@@ -164,7 +143,7 @@ class Instagram{
    }
 }
 //driver for the Instagram class, tests creating objects and all their methods.
-class MyDriver
+class Driver
 {
    public static void main(String[] args){
       Instagram insta = new Instagram();
@@ -199,64 +178,7 @@ class MyDriver
       }
    }
 }
-/*
 
-
-class Driver{
-   public static void main(String[]args) {
-      Instagram myInsta = new Instagram();
-      
-      
-      
-    	
-      myInsta.follow(true, "Matthew", "Philips", "MatPhil", 1); // must modify this line to include the added attribute
-      myInsta.follow(false, "Gary", "Kane",  "GKane", 2); //// must modify this line to include the added attribute
-      myInsta.follow(true, "Robert", "Kenny",  "RKenny", 3); //// must modify this line to include the added attribute
-      myInsta.follow(true, "Bill", "Fitch", "BillF", 4);//// must modify this line to include the added attribute
-      myInsta.follow(false, "Trevor", "Schlulz", "TrevorS", 5);//// must modify this line to include the added attribute
-      
-      
-      
-    	
-      System.out.println("Your followers informations\n");
-      System.out.println(myInsta);
-    	
-      
-      System.out.println("Removing Robert Kenny from your followers list");
-      myInsta.delete("Robert", "Kenny");
-   	
-      
-      System.out.println("List of followers after removing Robert Kenny");
-      System.out.println(myInsta);
-   	
-      
-      System.out.println("Adding Elon Musk to your list of followers");
-      myInsta.follow(true, "Elon", "Musk", "ElonM", 69);
-      
-      
-      System.out.println("List of your followers:");
-      System.out.println(myInsta);
-   	
-      
-      System.out.println("Searching for Stonewall Jackson(StonW) in your followers list");
-      if(myInsta.find("Jackson", "Stonewall") == false) {
-         System.out.println("Stonewall Jackson is not in your list of followers");
-         System.out.println("\n***************************");   
-         System.out.println("You are following " + myInsta.followersNum() + " people");
-      
-         System.out.println("You have " + myInsta.followingsNum() + " followers");  
-         System.out.println(myInsta);
-         Scanner kb = new Scanner(System.in);
-         System.out.println("Enter the first name and the last name of  of the person that you want to follow back: ");
-      
-         String first =kb.next();
-         String last = kb.next();
-          
-         myInsta.followBack(first, last);
-      
-         System.out.println(myInsta);
-      
-      }
    	
    }
 }

@@ -1,32 +1,18 @@
-/*
-Name:James Eaton
-Description: Zillow app, allows you to, using a node list, create a list of house objects that you can, add to, remove from, and serch for information on.
-Date:3/13/24
-Self grade:My grade is 100 becasue: 
-            I have followed all proper naming conventions,
-            I have proper and consistant indentation, 
-            I have meaningfull comments throughtout my code,
-            My program complies while having all required code,
-            My program runs and matched the sample output,
-            I have followed all the requirements,
-            and I have left this self grade.
-testimony: I have written the code by myself and did not use unauthorized resourse. 
-I am aware that If the instructor finds that the submitted code is from previos semester, 
-I will get zero points for it. Name: James Eaton
-*/
+
+//James Eaton
+//Description: Zillow app, allows you to, using a node list, create a list of house objects that you can, add to, remove from, and serch for information on.
+
 import java.util.Scanner; 
 public class ZillowEaton{
 }
 //
 class House implements Comparable<Object>{
-   //instance varibales
    private int rooms;
    private int baths;
    private double area;
    private String address;
    private double price;
    private String zipcode;
-   //constructor
    public House(int rooms, int baths, double area, String address, double price, String zipcode){
       this.rooms = rooms;
       this.baths = baths;
@@ -35,7 +21,6 @@ class House implements Comparable<Object>{
       this.price = price;
       this.zipcode = zipcode;      
    }
-   //getters	
    public double getPrice() {
       return price;
    }
@@ -57,7 +42,6 @@ class House implements Comparable<Object>{
    {
       return zipcode; 
    }
-   //setters
    public void setRooms(int rooms) {
       this.rooms = rooms;
    }
@@ -73,7 +57,6 @@ class House implements Comparable<Object>{
    {
       this.price = price;
    }
-   //methods
    //compares two house objects and returns weather or not they are the same
    public boolean equals(Object o) {
       House h = (House) o;
@@ -93,40 +76,32 @@ class House implements Comparable<Object>{
              return 0;
          }
    }
-	//toString method
    public String toString() {
-    return "\nRooms: " + rooms + "\nBaths: " + baths + "\nSquare Feet: " + area + "\nPrice: " + price + "\nZipCode: " + zipcode + "\nAddress: " + address + "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n";
+      return "\nRooms: " + rooms + "\nBaths: " + baths + "\nSquare Feet: " + area + "\nPrice: " + price + "\nZipCode: " + zipcode + "\nAddress: " + address + "\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n";
    }	
 }
 //ListNode class creates the node list for house so we can store them together as a list, while being able to manipulate the list and its contents
 class ListNode{
-   //instance variables
    private House house;
    private ListNode next;
-	//constructor
    public ListNode(House house) {
       this.house = house;
    }
-   //constructor
    public ListNode(House h, ListNode next) {
       this.house = h;
       this.next = next;
    }
-   //constructor
    public ListNode(){
    }
-	//getters
    public House getHouse() {
       return house;
    }
    public ListNode getNext() {
       return next;
    }
-   //setter
    public void setNext(ListNode next) {
       this.next = next;
    }
-	
 }
 //interface list for Zillow class
 interface List{
@@ -141,14 +116,11 @@ interface List{
 }
 //Zillow class allows you to manipulate the list of House objects with commands like remove and add, as well as get information by serching 
 class Zillow implements List{
-   //instance variables
    private ListNode head;
    public static int size = 0;
-	//constructor
    public Zillow() {
       head = null;
    }
-   //constructor
    public Zillow(House house) {
       head = new ListNode(house);
       size++;
@@ -224,7 +196,6 @@ class Zillow implements List{
    public int size(){
       return  size;
    }
-	//toSting method
    public String toString() {
       ListNode curr = head;
       String s = "";
@@ -332,7 +303,7 @@ class Zillow implements List{
       }  
    }
  }  
-//Driver class
+//
 class YourDriver{
    public static void main(String[] args){
       Zillow  list = new Zillow();
@@ -427,118 +398,6 @@ class YourDriver{
    }
 }
 
-
-
-/*Do not delete the Driver class
-Your program will be graded based on the running of the given Driver. Make sure that the output of your code matches 
-exactly the given output. Otherwise a lot of points will be lost*/
-/*class Driver
-{
-   public static void main(String[] args)
-   {
-      Zillow  list = new Zillow();
-   // public House(int rooms, int baths,double area,String address,double price, String zipcode){
-   //add(int rooms, int baths, double price, double area, String address,String zipcode) {
-      list.add(2,3,710000,1200,"Sahnnan Bay Drive", "95677");
-      list.add(4,3,1700000,3000,"Miners Cir", "95677");
-      list.add(2,2,650000,1400,"Albatroos Way", "95677");
-      list.add(2,3,600000,1200,"Halidon Drive", "95630");
-      list.add(2,3,750000,12500,"Taylor St", "95630");
-      list.add(2,3,700000,1100,"Canyon Drive", "95762");
-      list.add(5,4,1650000,2300,"Ridge View Drive", "95762");
-      list.add(3,2,722000,2300,"Vila Flor", "95630");
-      
-     // System.out.println(list);
-      Scanner kb = new Scanner(System.in);
-      while(true)
-      {
-         choice();
-         System.out.print("Select an option: ");
-         int option = kb.nextInt();
-         switch(option)
-         {
-            case 1: System.out.print("Enter the zipcode: ");
-               String zip = kb.next();
-               String s = list.search(zip);
-               if (s.length() != 0)
-                  System.out.println(s);
-               else
-                  System.out.println("No house was found");   
-               break;
-            case 2: System.out.print("Enter the number of the rooms: ");
-               int rooms = kb.nextInt();
-               s = list.search(rooms);
-               if (s.length() != 0)
-                  System.out.println(s);
-               else
-                  System.out.println("No house was found");
-               break;
-            case 3: System.out.print("Enter the number of the rooms and the number of the baths: ");
-               rooms = kb.nextInt();
-               int baths = kb.nextInt();
-               s = list.search(rooms, baths);
-               if (s.length() != 0)
-                  System.out.println(s);
-               else
-                  System.out.println("No house wasfound");
-               break;
-            case 4:System.out.print("Enter the adress of the house: ");
-               kb.nextLine();
-               String address  = kb.nextLine();
-               list.remove(address);
-                   //if (s.length() != 0)
-                     // System.out.println(s);
-                  // else
-                      //System.out.println("No house wasfound");
-               break;
-            case 5:System.out.print("Enter the number of the rooms: ");
-               rooms = kb.nextInt();
-               System.out.print("Enter the number of the baths: ");
-               baths = kb.nextInt();
-               System.out.print("Enter the price of the house: ");
-               double price = kb.nextDouble();
-               System.out.print("Enter the sqaure feet of the house: ");
-               double area = kb.nextDouble();
-               System.out.print("Enter the zip code: ");
-               zip = kb.next();
-               kb.nextLine();
-               System.out.print("Enter the address: ");
-               address = kb.nextLine();
-                    //int rooms, int baths, double price, double area, String address,String zipcode)
-               list.add(rooms, baths,price,area,address,zip);
-               break;
-             
-            case 6: System.out.println(list);
-               break;
-             
-             
-            case 7:System.out.println(list.mostExpensiveHouse()); 
-               break;
-             
-            case 8: System.out.println(list.leastExpensiveHouse()); 
-               break;   
-         
-            
-                          
-         } 
-      }
-      
-       
-   }
-   public static void choice()
-   {
-      System.out.println("\n*********************************************************\n");
-      System.out.println("Enter 1 to list the houses based on the zipcode");
-      System.out.println("Enter 2 to list the houses based on the number of the rooms");
-      System.out.println("Enter 3 to list the houses with the number of rooms and baths");
-      System.out.println("Enter 4 to remove a house from the list");
-      System.out.println("Enter 5 to add a house to the list");
-      System.out.println("Enter 6 to list all the houses");
-      System.out.println("Enter 7 to list the most expensive house");
-      System.out.println("Enter 8 to list the least expensive house");
-      System.out.println("***************************************************\n");
-   }
-   
    
 }*/
 	

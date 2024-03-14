@@ -1,7 +1,5 @@
-
 //James Eaton
 //Description: Zillow app, allows you to, using a node list, create a list of house objects that you can, add to, remove from, and serch for information on.
-
 import java.util.Scanner; 
 public class ZillowEaton{
 }
